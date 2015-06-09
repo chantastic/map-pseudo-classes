@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>:first-child JavaScript example</title>
+  </head>
+  <body>
+    <script src="./vendor/react-v0.13.3.js"></script>
+    <script src="./vendor/JSXTransfrmer-v0.13.3.js"></script>
+    <script src="./examples/FirstChild.js" type="text/jsx"></script>
+    <script src="./examples/LastChild.js" type="text/jsx"></script>
+    <script src="./examples/OnlyChild.js" type="text/jsx"></script>
+    <script src="./examples/NthChildN.js" type="text/jsx"></script>
+    <script src="./examples/NthChildOdd.js" type="text/jsx"></script>
+    <script src="./examples/NthChildEven.js" type="text/jsx"></script>
+
+    <script type="text/jsx">
+      var items = [ "First", "Second", "Third", "Fourth", "Fifth", "Sixth" ];
+
+      var Item = React.createClass({
+        render: function () {
+          var styles = {};
+
+          if(this.props.highlight) {
+            styles = { backgroundColor: "#c0ffee" };
+          }
+
+          return <li style={styles}>{this.props.children}</li>;
+        }
+      });
+
+      var Examples = React.createClass({
+        render: function () {
+          return (
+            <main>
+              <h2>:first-child</h2>
+              <FirstChild items={this.props.items} />
+
+              <h2>:last-child</h2>
+              <LastChild items={this.props.items} />
+
+              <h2>:only-child</h2>
+              <OnlyChild items={["Only"]} />
+              <OnlyChild items={["Not", "Only"]} />
+
+              <h2>:nth-child(n)</h2>
+              <NthChildN items={this.props.items} n={2} />
+
+              <h2>:nth-child(odd)</h2>
+              <NthChildOdd items={this.props.items} />
+
+              <h2>:nth-child(even)</h2>
+              <NthChildEven items={this.props.items} />
+            </main>
+          );
+        }
+      });
+
+      React.render(<Examples items={items} />, document.body);
+    </script>
+  </body>
+</html>

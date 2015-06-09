@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>:first-child JavaScript example</title>
+  </head>
+  <body>
+    <script type="text/jsx">
+      var items = [ "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth" ];
+
+      var List = React.createClass({
+        renderItem: function (item, i, items) {
+          var styles = null;
+
+          if(i === items.length - 1) {
+            styles = { backgroundColor: "#c0ffee" };
+          }
+
+          return <li style={styles}>{item}</li>;
+        },
+
+        render: function () {
+          return <ul>{this.props.items.map(this.renderItem)}</ul>;
+        }
+      });
+
+      React.render(<List items={items}/>, document.body);
+    </script>
+    <script src="./vendor/react-v0.13.3.js"></script>
+    <script src="./vendor/JSXTransfrmer-v0.13.3.js"></script>
+  </body>
+</html>

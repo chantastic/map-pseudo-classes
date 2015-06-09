@@ -5,6 +5,7 @@
   <body>
     <script src="./vendor/react-v0.13.3.js"></script>
     <script src="./vendor/JSXTransfrmer-v0.13.3.js"></script>
+    <script src="./Item.js" type="text/jsx"></script>
     <script src="./examples/FirstChild.js" type="text/jsx"></script>
     <script src="./examples/LastChild.js" type="text/jsx"></script>
     <script src="./examples/OnlyChild.js" type="text/jsx"></script>
@@ -14,18 +15,6 @@
 
     <script type="text/jsx">
       var items = [ "First", "Second", "Third", "Fourth", "Fifth", "Sixth" ];
-
-      var Item = React.createClass({
-        render: function () {
-          var styles = {};
-
-          if(this.props.highlight) {
-            styles = { backgroundColor: "#c0ffee" };
-          }
-
-          return <li style={styles}>{this.props.children}</li>;
-        }
-      });
 
       var Examples = React.createClass({
         render: function () {
